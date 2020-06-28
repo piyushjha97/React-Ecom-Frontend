@@ -164,3 +164,7 @@ a:hover{
   list-style-type: none;
   padding: 0px;
 }
+
+.details-info li, .details-action li{
+  margin-bottom: 1rem;
+}
