@@ -152,10 +152,15 @@ a:hover{
   width: 100%;
 }
 
-.details-image{
+.details-info{
   flex: 1 1 30rem;
 }
 
-.details-image{
+.details-action{
   flex: 1 1 30rem;
+}
+
+.details-info ul, .details-action ul{
+  list-style-type: none;
+  padding: 0px;
 }
