@@ -3,6 +3,8 @@ import data from '../data'
 import { Link } from 'react-router-dom';
 
 function ProductScreen(props) {
+
+    
     console.log('product screen')
     console.log(props.match.params.id)
     const product = data.products.find(x=> x._id === props.match.params.id);
