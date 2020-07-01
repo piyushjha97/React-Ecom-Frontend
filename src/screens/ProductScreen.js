@@ -7,7 +7,8 @@ function ProductScreen(props) {
 
     
     
-    const productDetails =useSelector(state => state.productDetails)
+    const productDetails = useSelector(state => state.productDetails)
+    const {product,loading,error}= productDetails
     const dispatch = useDispatch;
 
 
@@ -24,7 +25,11 @@ function ProductScreen(props) {
         <div className="back-to-result">
             <Link to="/">Back To Home Page</Link>
         </div>
-        <div className="details">
+
+        {loading? <div> Loading...</div>:
+        error? <div> {error} </div> :
+        (
+           <div className="details">
                 <div className="details-image">
                     <img src={product.image} alt="product" ></img>
             
@@ -74,7 +79,11 @@ function ProductScreen(props) {
                     </ul>
                 </div>
             </div>
-         </div>
+         
+        )
+        
+        }
+        </div> 
 }
 
 export default ProductScreen;
