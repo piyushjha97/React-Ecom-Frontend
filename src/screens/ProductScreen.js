@@ -1,13 +1,25 @@
 import React from 'react'
-import data from '../data'
+import {detailsProducts} from '../actions/productAction'
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ProductScreen(props) {
 
     
-    console.log('product screen')
-    console.log(props.match.params.id)
-    const product = data.products.find(x=> x._id === props.match.params.id);
+    
+    const productDetails =useSelector(state => state.productDetails)
+    const dispatch = useDispatch;
+
+
+    //useEffect 
+
+    useEffect(() => {
+        dispatch(detailsProducts())
+        return () => {
+            // cleanup
+        }
+    }, [])
+
     return <div>
         <div className="back-to-result">
             <Link to="/">Back To Home Page</Link>
