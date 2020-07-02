@@ -21,6 +21,13 @@ function ProductScreen(props) {
         }
     }, [])
 
+        const handleAddToCart =()=>{
+            props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
+        }
+
+
+
+
     return <div>
         <div className="back-to-result">
             <Link to="/">Back To Home Page</Link>
@@ -66,11 +73,11 @@ function ProductScreen(props) {
                         <li>
                             Qty:<select value={qty} onChange={(e)=>{setQty(e.target.value)}}>
                                 {[...Array(product.countInStock).keys()].map(x=>
-                                    <option value={x+1}>{x+1}</option>)}
+                                    <option key={x+1} value={x+1}>{x+1}</option>)}
                             </select>
                         </li>
                         <li>
-                            <button className="button">Add To Cart</button>
+                            <button className="button" onClick={handleAddToCart}>Add To Cart</button>
                         </li>
                     </ul>
                 </div>
