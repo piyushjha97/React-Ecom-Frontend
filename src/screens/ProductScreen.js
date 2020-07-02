@@ -1,5 +1,5 @@
-import React from 'react'
-import {detailsProducts} from '../actions/productAction'
+import React, { useEffect } from 'react'
+import {detailsProduct} from '../actions/productAction'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -9,13 +9,13 @@ function ProductScreen(props) {
     
     const productDetails = useSelector(state => state.productDetails)
     const {product,loading,error}= productDetails
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
 
 
     //useEffect 
 
     useEffect(() => {
-        dispatch(detailsProducts())
+        dispatch(detailsProduct(props.match.params.id))
         return () => {
             // cleanup
         }
