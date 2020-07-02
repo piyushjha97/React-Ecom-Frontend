@@ -1,18 +1,35 @@
-import React from 'react'
-import data from '../data'
+import React, { useEffect } from 'react'
+import {detailsProduct} from '../actions/productAction'
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ProductScreen(props) {
 
     
-    console.log('product screen')
-    console.log(props.match.params.id)
-    const product = data.products.find(x=> x._id === props.match.params.id);
+    
+    const productDetails = useSelector(state => state.productDetails)
+    const {product,loading,error}= productDetails
+    const dispatch = useDispatch();
+
+
+    //useEffect 
+
+    useEffect(() => {
+        dispatch(detailsProduct(props.match.params.id))
+        return () => {
+            // cleanup
+        }
+    }, [])
+
     return <div>
         <div className="back-to-result">
             <Link to="/">Back To Home Page</Link>
         </div>
-        <div className="details">
+
+        {loading? <div> Loading...</div>:
+        error? <div> {error} </div> :
+        (
+           <div className="details">
                 <div className="details-image">
                     <img src={product.image} alt="product" ></img>
             
@@ -62,7 +79,11 @@ function ProductScreen(props) {
                     </ul>
                 </div>
             </div>
-         </div>
+         
+        )
+        
+        }
+        </div> 
 }
 
 export default ProductScreen;
