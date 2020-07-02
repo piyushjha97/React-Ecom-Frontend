@@ -197,3 +197,12 @@ a:hover{
 .button:hover{
   border: .1rem #404080 solid;
 }
+
+.button_out{
+  background-color: #be8f0f;
+  padding: 1rem;
+  border:.1rem #808080 solid;
+  cursor: pointer;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+}
