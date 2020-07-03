@@ -1,17 +1,23 @@
 import React, { useEffect } from 'react'
+import { addToCart } from '../actions/cartAction';
+import { useDispatch } from 'react-redux';
 
-export default function CartScreen(props) {
+function CartScreen(props) {
 
-    const productId = props.match.params.id
+    const productId = props.match.params.id;
     const qty = props.location.search? Number(props.location.search.split("=")[1]):1;
 
+    const dispatch = useDispatch();
     useEffect(() =>{
+
         if(productId){
-            dispatch(addToCart(productId, qty))
+            dispatch(addToCart(productId, qty));
         }
     }, [])
 
-    console.log({productId},{qty})
-    return ( <div>Cart Screen</div>)
+    return  <div>Cart Screen</div>
     
 }
+
+
+export default CartScreen
