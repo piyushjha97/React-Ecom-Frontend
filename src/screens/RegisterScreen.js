@@ -1,16 +1,20 @@
 import React, { useEffect, useState, } from 'react'
 import {useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import jwt from 'js-cookie';
-import { signin } from '../actions/userAction';
+import { register } from '../actions/userAction';
 
-function SigninScreen(props) {
+function RegisterScreen(props) {
 
+
+
+
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [repassword, setRepassword] = useState('');
 
-    const userSignin = useSelector(state=>state.userSignin);
-    const {laoding,userInfo, error}= userSignin;
+    const userRegister = useSelector(state=>state.userRegister);
+    const {laoding,userInfo, error}= userRegister;
 
     const dispatch = useDispatch();
 
@@ -29,7 +33,7 @@ function SigninScreen(props) {
         
     const submitHandler=(e) =>{
         e.preventDefault();
-        dispatch(signin(email,password))
+        dispatch(register(name, email,password))
     }
 
 
@@ -47,6 +51,16 @@ function SigninScreen(props) {
 
                  </li> 
                 </li>
+
+                <li>
+                    <label htmlfor="name">
+                        Name
+                    </label>
+                    <input type="name" name="name" id="name" onChange={(e)=> setName(e.target.value)}>
+
+                    </input>
+                </li>
+
                 <li>
                     <label htmlfor="email">
                         Email
@@ -55,6 +69,9 @@ function SigninScreen(props) {
 
                     </input>
                 </li>
+
+
+
                 <li>
                     <label htmlfor="password">
                         Password
@@ -62,17 +79,26 @@ function SigninScreen(props) {
                     <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}>
                     </input>
                 </li>
+
+
+                <li>
+                    <label htmlfor="repassword">
+                        Re-Enter Password
+                    </label>
+                    <input type="repassword" name="repassword" id="repassword" onChange={(e) => setRepassword(e.target.value)}>
+                    </input>
+                </li>
                 <li>
                     <button type="submit" className="button primary">
-                        Sign-In
+                        Register
                     </button>
 
                 </li>
                 <li>
-                  New to amazon?  
+                    Already have an account?  
                 </li>
                 <li>
-                    <Link to="/register" className="button_newaccount full-width"> Create Your Free Account!</Link>
+                    <Link to="/register" className="button_newaccount full-width"> Sign In</Link>
                 </li>
 
             </ul>
@@ -81,4 +107,4 @@ function SigninScreen(props) {
     </div>
 }
 
-export default SigninScreen;
+export default RegisterScreen;
