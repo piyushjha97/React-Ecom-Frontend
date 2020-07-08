@@ -44,14 +44,35 @@ body{
 .main{
   grid-area: main;
 }
-.footer{
-  grid-area: footer;
+/* .footer{
+  grid-area: footer; 
+  width: 100%;
+  bottom: 0;
+  left: 0;
   background-color: #203040;
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
+
+
+.footer{
+   position: fixed;
+   width: 20px;
+   height: 40px;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #203040;
+   color: white;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   grid-area: footer;
+
+  }
+
 a{
   text-decoration: none;
 }
@@ -205,4 +226,126 @@ a:hover{
   cursor: pointer;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 
+}
+
+.button_newaccount{
+  background-color: #80808000;
+  padding: 1rem;
+  border: .1rem #80808000 solid;
+  border-radius: 0.5rem;
+
+}
+
+
+/* Cart */
+
+.cart{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  align-items: flex-start;
+}
+
+.cart-list{
+  flex: 3 1 60rem;
+}
+
+.cart-action{
+  flex: 1 1 20rem;
+  background-color: #f0f0f0;
+  border: .1rem #808080 solid;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.cart-list-container {
+  padding: 0px;
+  list-style-type: none;
+  padding: 1rem;
+
+}
+
+.cart-list-container li{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-end; */
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: #808080 solid;;
+}
+
+.cart-list-container li img{
+  
+  max-width: 10rem;
+  max-height: 10rem;
+
+
+  margin-bottom: 1rem;
+  border: .1rem;
+
+}
+
+.cart-list-container li:first-child{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cart-image{
+  flex: 1 1;
+  display: inline;
+}
+
+.cart-name{
+  flex: 8 1;
+  flex-wrap: wrap;
+}
+
+.cart-price{
+  flex: 1 1;
+  flex-direction: column-reverse;
+  font-size: 2.5rem;
+  text-align: right;
+}
+
+
+/* Forms */
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  padding: 2rem;
+  border: .1rem #f0f0f0 solid;
+  border-radius: .5rem;
+  list-style-type: none;
+
+
+}
+
+.form-container li{
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+input{
+  padding: 1rem;
+  border: .1rem #c0c0c0 solid;
+  border-radius: .58rem;
+  margin-top: 1rem;
+}
+
+.main h3{
+  text-align: center;
 }
