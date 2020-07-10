@@ -23,6 +23,8 @@ export default function HomeScreen(props) {
     }
   }, [])
 
+  console.log('starting')
+
     return  loading ? <div>Loading...</div> : 
     error? <div>{error}</div> :
 
